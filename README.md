@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple command-line application for searching names of clients from `appassets02.shiftcare.com/manual/clients.json` and finding duplicates.
 
-Things you may want to cover:
+Setup:
+- Clone the repository
+  ```
+  git clone https://github.com/djbelmonte/json-search.git
+  ```
+- Go inside the project
+  ```
+  cd json-search
+  ```
+- Make sure you have ruby installed
+  ```
+  ruby -v
+  ```
 
-* Ruby version
+For usage, there are two supported commands at the moment
+1. Search for a client using a `query_string`
+   ```
+   bin/rails json_search:search[<query_string>]
+   ```
+   e.g.
+   ```
+   bin/rails json_search:search["john"]
+   ```
+2. Find duplicates
+   ```
+   bin/rails json_search:duplicates
+   ```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Limitations
+- This only supports the dataset from `appassets02.shiftcare.com/manual/clients.json`
+- Can only search for the "full_name" field at the moment
+- Duplicate checking is for email only
+- No other argument can be passed at the moment for search command aside from the query_string
